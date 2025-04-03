@@ -1,0 +1,549 @@
+/* ===== RESET Y ESTILOS BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    opacity: 1 !important;
+    background-color: #000;
+    background-image: url('imagenes/fondoindex.jpg');
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    overflow-x: hidden;
+    transition: background-color 0.5s ease-in-out;
+    flex-direction: column;
+    padding: 20px 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+}
+
+/* ===== ESTILOS DE CABECERA ===== */
+#inicio {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 1.5rem;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    width: 100%;
+    text-align: center;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-bottom: 0;
+}
+
+#inicio h1 {
+    font-size: 52px;
+    margin-bottom: 50px;
+    color: white !important; /* Fuerza color blanco */
+    opacity: 1 !important; /* Fuerza visibilidad */
+    animation: none !important; /* Elimina animación que lo oculta */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Mejor contraste */
+    transition: font-size 0.4s ease;
+}
+
+
+#inicio p {
+    font-size: 1.2em;
+    margin-top: 0;
+    opacity: 0;
+    animation: fadeIn 1s 0.5s forwards;
+}
+
+#inicio h1:hover {
+    font-size: 52px; /* Crecimiento mínimo al pasar mouse */
+}
+
+/* ===== ESTILOS PARA LISTA DE DESEOS ===== */
+.dream-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 20px; /* Espacio entre items */
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== SOLUCIÓN DEFINITIVA (BONITA Y FUNCIONAL) ===== */
+.dream-list li {
+    white-space: nowrap; /* Texto en una línea */
+    overflow: hidden;
+    text-overflow: ellipsis; /* ... si es muy largo */
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff !important;
+    padding: 18px 20px 18px 65px !important;
+    margin-bottom: 0 !important; /* Quitamos margen inferior */
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-radius: 0 15px 15px 0 !important;
+    border-left: 3px solid #ff6b6b !important;
+    transition: all 0.3s ease-out;
+    backdrop-filter: blur(5px);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    display: block !important;
+    width: 100% !important;
+    animation: 
+        fadeInUpSmooth 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards,
+        glowBorder 3s infinite alternate;
+    animation-delay: calc(var(--i) * 0.08s);
+    transform-origin: left center;
+    border-left: 3px solid; /* Borde dinámico */
+    will-change: transform, opacity; /* Optimización */
+}
+
+.dream-list li span {
+    display: inline !important;
+    white-space: nowrap !important;
+}
+
+.dream-list li:hover {
+    white-space: normal; /* Muestra todo el texto al pasar mouse */
+    overflow: visible;
+    z-index: 2;
+    transform: scale(1.05) !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    opacity: 1 !important; /* Fuerza visibilidad */
+    transform: scale(1.05) translateZ(0) !important; /* Optimiza GPU */
+    background: rgba(0, 0, 0, 0.6) !important;
+    white-space: normal;
+    overflow: visible;
+    z-index: 2;
+    animation: none !important; /* Elimina animaciones conflictivas */
+}
+/* Aseguramos que el texto permanezca visible */
+.dream-list li:hover span {
+    display: inline !important;
+    opacity: 1 !important;
+}
+
+/* ===== NUMEROS MÁS DISCRETOS ===== */
+.dream-list li::before {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%) !important;
+    box-shadow: 0 3px 8px rgba(255, 107, 107, 0.4);
+    left: 15px;
+}
+
+.dream-list li:hover {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.dream-list li:nth-child(2n)::before {
+    background: linear-gradient(135deg, #4ecdc4 0%, #66d8d1 100%);
+    box-shadow: 0 4px 8px rgba(78, 205, 196, 0.3);
+}
+
+.dream-list li:nth-child(3n)::before {
+    background: linear-gradient(135deg, #ffb347 0%, #ffcc33 100%);
+    box-shadow: 0 4px 8px rgba(255, 179, 71, 0.3);
+}
+
+.dream-title {
+    text-align: center;
+    color: #ff6b6b;
+    margin: 5px 0 30px;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+/* ===== ESTILOS PARA ÁLBUM DE CANCIONES ===== */
+.album-canciones {
+    margin: 20px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 1s 0.7s forwards;
+}
+
+.album-canciones h2 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 30px;
+    animation: slideInLeft 1s ease-out;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    opacity: 0;
+    animation: fadeInUp 1s 1s forwards;
+}
+
+li {
+    width: calc(25% - 30px);
+    text-align: center;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeInUp 1s 1.5s forwards;
+}
+
+.song {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.song-img {
+    width: 70%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    opacity: 0.6;
+}
+
+.song-img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.song-info {
+    margin-top: 10px;
+}
+
+.song-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.song-artist {
+    font-size: 1em;
+    color: #999;
+}
+
+.song:hover .song-info {
+    transform: translateY(-10px);
+    opacity: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.song:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== ESTILOS PARA GALERÍA DE FOTOS ===== */
+.album-fotos {
+    margin-top: 0.1rem;
+    width: 90%;
+    margin: 0 auto;
+    opacity: 1;
+}
+
+.fotos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.foto-item {
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+}
+
+.foto-imagen {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.foto-item:hover .foto-imagen {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.foto-item p {
+    margin-top: 10px;
+    color: white;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== BOTONES Y NAVEGACIÓN ===== */
+.opciones {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeInUp 1s 1.5s forwards;
+}
+
+.opciones .boton {
+    display: inline-block;
+    background-color: transparent;
+    color: white;
+    padding: 0;
+    text-decoration: none;
+    border: none;
+    font-size: 1.0em;
+    margin: 0 1.5rem;
+    position: relative;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.opciones .boton span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.opciones .boton:hover span {
+    transform: translateY(-5px);
+}
+
+.opciones .boton::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background: white;
+    bottom: -3px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.opciones .boton:hover::after {
+    width: 100%;
+}
+
+.volver-inicio {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.volver-inicio:hover {
+    background-color: #555;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes flotar {
+    to {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+/* Versión móvil (1 columna) */
+@media (max-width: 768px) {
+    .dream-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .dream-list li {
+        white-space: normal; /* Texto fluido en móviles */
+        overflow: visible;
+    }
+}
+
+@keyframes fadeInUpSmooth {
+    0% {
+        opacity: 0;
+        transform: translateY(25px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes glowBorder {
+    0% {
+        border-color: #ff6b6b;
+        box-shadow: 0 0 5px rgba(255, 107, 107, 0);
+    }
+    100% {
+        border-color: #ff9e2d;
+        box-shadow: 0 0 15px rgba(255, 158, 45, 0.4);
+    }
+}
+
+.dream-list li:hover {
+    animation: 
+        gentlePulse 1.5s ease infinite,
+        glowBorder 1s infinite alternate;
+    transform: scale(1.02);
+    background: rgba(0, 0, 0, 0.5) !important;
+    white-space: normal;
+    overflow: visible;
+    z-index: 2;
+}
+
+@keyframes gentlePulse {
+    0%, 100% {
+        transform: scale(1.02);
+    }
+    50% {
+        transform: scale(1.04);
+    }
+}
+
+/* ===== ESTILOS PARA SCROLLBAR ===== */
+body {
+    overflow: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+html {
+    scrollbar-width: none;
+}
+/* ===== LISTA DE EMOCIONES MEJORADA ===== */
+.sentimientos {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    animation: fadeIn 1s ease-out;
+}
+
+.sentimientos h2 {
+    font-size: 2rem;
+    color: #ff6b6b;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.sentimientos h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #ff6b6b, transparent);
+    margin: 10px auto 0;
+}
+
+.sentimientos p {
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 25px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+    transition: all 0.4s ease;
+    transform: translateY(0);
+}
+
+.sentimientos p:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 107, 107, 0.3);
+}
+
+/* Animación de latido sutil para el título */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.02); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.01); }
+    100% { transform: scale(1); }
+}
+
+.sentimientos h2 {
+    animation: heartbeat 3s ease-in-out infinite;
+}
+
+/* Efecto de aparición gradual */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
